@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<title>Home</title>
+</head>
+
+<body>
+  <div class="mx-auto">
+    <header>
+      <?php include 'navbar.php'; ?>
+    </header>
+
+    <section class="w-full h-screen bg-cover bg-center flex items-center justify-center">
+  <div class="flex flex-col md:flex-row items-center justify-center gap-1 px-7 md:px-16 w-full mx-10">
+    <div class="img">
+      <img src="image/img/1.png" alt="" class="object-contain" />
+    </div>
+    <div class="px-5 rounded-xl text text-white max-w-xl space-y-4 text-center md:text-left">
+    <h2 class="text-xl md:text-3xl font-semibold">Your Trusted Health Partner</h2>
+<h1 class="text-4xl md:text-5xl font-bold">Find and Order Medicines Easily Online</h1>
+<p class="text-sm md:text-base leading-relaxed py-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <a href="#get">
+        <button class="mt-4 px-6 py-2 bg-amber-800 text-white rounded hover:bg-amber-700 transition">
+          Get Started
+        </button>
+      </a>
+    </div>
+  </div>
+</section>
+
+    <div id="get" class="py-16 bg-white text-center px-4">
+      <div class="max-w-2xl mx-auto space-y-6">
+        <h2 class="text-2xl font-bold">You can search Medicine from any Store</h2>
+        <p class="italic text-gray-600">Type the medicine name and hit "Search"</p>
+        <div class="flex justify-center items-center gap-4">
+          <input type="text" placeholder="Search Medicine ..." required
+            class="border border-gray-300 rounded px-4 py-2 w-full max-w-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <a href="pharmacy.php">
+            <button class="bg-amber-800 text-white px-6 py-2 rounded hover:bg-amber-700 transition">
+              Search
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <?php include 'footer.php'; ?>
+</body>
+
+</html>
