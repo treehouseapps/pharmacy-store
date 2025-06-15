@@ -1,49 +1,63 @@
 <?php
 session_start();
-    if(($_SESSION["role"] != "SAdmin")){
-        header("Location: login.php");
-    }
+if ($_SESSION["role"] != "SAdmin") {
+    header("Location: login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/session.css">
-    <title>Super admin</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Super Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    
+<body class="bg-gray-50 min-h-screen flex flex-col">
 
-    <div class="container"><header>
-            <?php include 'navbar.php'; ?>
-        </header>
-        <div style="margin: 2px;width: max-content;border: 1px solid rgb(88, 5, 77);border-radius: 10px;padding: 5px;position: absolute;right: 0px;">
-        <img src="image/profile.jpg" alt="" width="50" height="50">
-        <h2><?php echo $_SESSION["role"]; ?></h2>
-        <form action="login.php" method="POST"><div class="for" style="margin:1px;"><button name="logout" type="submit">Logout</button></div></form>
+  <header>
+    <?php include 'navbar.php'; ?>
+  </header>
+
+  <!-- User info box top-right -->
+  <div
+    class="fixed top-4 right-4 flex items-center space-x-3 border border-amber-700 rounded-lg bg-white px-4 py-2 shadow z-50">
+    <img src="image/profile.jpg" alt="Profile" class="w-12 h-12 rounded-full object-cover" />
+    <div class="text-center">
+      <h2 class="font-semibold text-amber-700"><?php echo htmlspecialchars($_SESSION["role"]); ?></h2>
+      <form action="login.php" method="POST" class="mt-1">
+        <button
+          name="logout"
+          type="submit"
+          class="px-4 py-1 bg-amber-600 text-white rounded hover:bg-amber-700 transition text-sm"
+        >
+          Logout
+        </button>
+      </form>
     </div>
+  </div>
 
-        <section>
-            <center><br>
-            <div class="listheader" style="margin: 10px; padding: 10px;">
-                <h1>Admin View</h1>
-            </div>
-                <div class="listforchoose">
-                <div class="choose">
-                <a href="add_smembers.php"><button class="bchoose"><h4>Add Members</h4></button></a>
-            </div>
-                <div class="choose">
-                <a href="admin_store.php"><button class="bchoose"><h4>Members List</h4></button></a>
-            </div>
-                </div>
-            </center>
-           
-        </section>
-        <?php include 'footer.php'; ?>
+  <main class="flex-grow flex flex-col items-center justify-center py-20 px-4">
+    <section class="w-full max-w-lg bg-white rounded-lg shadow p-8 text-center">
+      <h1 class="text-3xl font-bold mb-8 text-amber-700">Admin View</h1>
+
+      <div class="flex justify-center gap-6">
+        <a href="add_smembers.php"
+          class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-4 rounded shadow transition">
+          Add Members
+        </a>
+        <a href="admin_store.php"
+          class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-4 rounded shadow transition">
+          Members List
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <?php include 'footer.php'; ?>
 
 </body>
 
