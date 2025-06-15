@@ -41,14 +41,14 @@ if ($_SESSION["role"] != "StoreMan") {
       <div class="flex flex-col md:flex-row justify-center gap-6">
         <div class="bg-white shadow-md rounded-lg px-6 py-4 hover:shadow-lg transition">
           <a href="add_medicine.php">
-            <button class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">
+            <button class="bg-amber-600 text-white px-6 py-2 rounded hover:bg-amber-700 transition">
               Add Medicine
             </button>
           </a>
         </div>
         <div class="bg-white shadow-md rounded-lg px-6 py-4 hover:shadow-lg transition">
           <a href="pharmacy.php">
-            <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+            <button class="bg-amber-600 text-white px-6 py-2 rounded hover:bg-amber-700 transition">
               Medicine Store Page
             </button>
           </a>
