@@ -1,52 +1,70 @@
 <?php
 session_start();
-    if(($_SESSION["role"] != "Sales")){
-        header("Location: login.php");
-    }
+if ($_SESSION["role"] != "Sales") {
+    header("Location: login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/session.css">
-    <title>List</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pharmacist View</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    
+<body class="bg-gray-100 text-gray-800 min-h-screen">
 
-    <div class="container"><header>
+    <div class="container mx-auto p-6">
+        <!-- Navbar -->
+        <header class="mb-6">
             <?php include 'navbar.php'; ?>
         </header>
-        <div style="margin: 2px;width: max-content;border: 1px solid rgb(88, 5, 77);border-radius: 10px;padding: 5px;position: absolute;right: 0px;">
-        <img src="image/profile.jpg" alt="" width="50" height="50">
-        <h2><?php echo $_SESSION["role"]; ?></h2>
-        <form action="login.php" method="POST"><div class="for" style="margin:1px;"><button name="logout" type="submit">Logout</button></div></form>
-    </div>
 
-        <section>
-            <center><br><br>
-            <div class="listheader">
-                <h1>Pharmacist View</h1>
+        <!-- User Info -->
+        <div class="absolute top-4 right-4 bg-white border border-amber-700 rounded-lg shadow px-4 py-2 flex items-center gap-3">
+            <img src="image/profile.jpg" alt="Profile" class="w-12 h-12 rounded-full object-cover" />
+            <div class="text-center">
+                <h2 class="text-lg font-semibold text-amber-700"><?php echo $_SESSION["role"]; ?></h2>
+                <form action="login.php" method="POST">
+                    <button name="logout" type="submit"
+                        class="mt-1 px-4 py-1 bg-amber-600 text-white text-sm rounded hover:bg-amber-700 transition">
+                        Logout
+                    </button>
+                </form>
             </div>
-                <div class="listforchoose">
-                <div class="choose">
-                <a href="pharmacy.php"><button class="bchoose"><h4>Medicine store page</h4></button></a>
+        </div>
+
+        <!-- Content Section -->
+        <section class="text-center mt-20">
+            <h1 class="text-3xl font-bold text-amber-700 mb-10">Pharmacist View</h1>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center">
+                <a href="pharmacy.php" class="block">
+                    <button class="w-full bg-amber-600 text-white font-semibold py-3 px-6 rounded-lg shadow hover:bg-amber-700 transition">
+                        Medicine Store Page
+                    </button>
+                </a>
+                <a href="pharm_record.php" class="block">
+                    <button class="w-full bg-amber-600 text-white font-semibold py-3 px-6 rounded-lg shadow hover:bg-amber-700 transition">
+                        Report Page
+                    </button>
+                </a>
+                <a href="add_report.php" class="block">
+                    <button class="w-full bg-amber-600 text-white font-semibold py-3 px-6 rounded-lg shadow hover:bg-amber-700 transition">
+                        Add Report Page
+                    </button>
+                </a>
             </div>
-            <div class="choose">
-                <a href="pharm_record.php"><button class="bchoose">Report page</button></a>
-            </div>
-            <div class="choose">
-                <a href="add_report.php"><button class="bchoose">Add Report page</button></a>
-            </div>
-                </div>
-            </center>
-           
         </section>
-        <?php include 'footer.php'; ?>
+
+        <!-- Footer -->
+        <div class="mt-16">
+            <?php include 'footer.php'; ?>
+        </div>
+    </div>
 
 </body>
 
